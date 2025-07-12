@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find the best street food near you. Explore top stalls, trending foods, and new vendors. Subscribe for the latest news and exclusive offers!" />
+  <meta name="keywords" content="street food, food finder, best street food near me, top stalls, cheap eats, food locator, Taste of Street" />
+  <title>TOS</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <style>
+    html, body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: #222; }
+    header { position: static; top: 0; width: 100%; background: #fff; z-index: 1000; box-shadow: none; }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e63946;
+      letter-spacing: 2px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .logo-img {
+      height: 80px;
+      width: 80px;
+      vertical-align: middle;
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: hsl(115, 89%, 56%);
+      font-weight: 500;
+      transition: color 0.2s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .nav-links a:hover { color: #e63946; }
+    .nav-links a[href='index.html'] {
+      position: relative;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: none;
+      border-radius: 18px;
+      padding: 0.4rem 1.2rem;
+    }
+    .nav-links a[href='index.html']:hover,
+    .nav-links a[href='index.html']:active {
+      background: none;
+      color: #222;
+      box-shadow: none;
+      transform: none;
+      z-index: auto;
+      text-shadow: none;
+    }
+    .nav-links a[href='blog.html'],
+    .nav-links a[href='Vendor.html'],
+    .nav-links a[href='about.html'],
+    .nav-links a[href='FAQs.html'],
+    .nav-links a[href='contact.html'] {
+      position: relative;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: none;
+      border-radius: 18px;
+      padding: 0.4rem 1.2rem;
+    }
+    .nav-links a[href='blog.html']:hover,
+    .nav-links a[href='Vendor.html']:hover,
+    .nav-links a[href='about.html']:hover,
+    .nav-links a[href='FAQs.html']:hover,
+    .nav-links a[href='contact.html']:hover,
+    .nav-links a[href='blog.html']:active,
+    .nav-links a[href='Vendor.html']:active,
+    .nav-links a[href='about.html']:active,
+    .nav-links a[href='FAQs.html']:active,
+    .nav-links a[href='contact.html']:active {
+      background: none;
+      color: #222;
+      box-shadow: none;
+      transform: none;
+      z-index: auto;
+      text-shadow: none;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .search-bar input, .search-bar select { padding: 0.5rem; border-radius: 4px; border: 1px solid #ddd; }
+    .cta-explore {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 1rem;
+      box-shadow: none;
+      position: relative;
+      transition: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .cta-explore:hover, .cta-explore:active {
+      background: #e63946;
+      color: #fff;
+      box-shadow: none;
+      transform: none;
+      text-shadow: none;
+    }
+    .cta-trial {
+      
+      color: #222;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+    }
+    .cta-trial:hover {
+      
+      color: #fff;
+      box-shadow: 0 0 16px 2px #e63946cc, 0 2px 12px #ffb70355;
+      transform: scale(1.07);
+      z-index: 2;
+    }
+    .cta-trial:active {
+      
+      color: #fffbe5;
+      box-shadow: 0 0 8px 1px #e63946aa;
+      transform: scale(0.97);
+    }
+    .parallax-hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)), url('front.jpg') center/cover fixed; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
+    .parallax-hero h1 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .parallax-hero p { font-size: 1.3rem; margin-bottom: 2rem; }
+    .news-ticker { background: #fff; color: #e63946; padding: 0.5rem 0; font-weight: 600; font-size: 1rem; letter-spacing: 1px; position: absolute; bottom: 0; width: 100%; }
+    .main-content { margin-top: 90px; }
+    .section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-title { font-size: 2rem; color: #e63946; margin-bottom: 1.5rem; }
+    .carousel { display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 1rem; }
+    .carousel-card { min-width: 300px; background: #fff; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 1rem; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
+    .carousel-card img { width: 100%; border-radius: 12px; height: 160px; object-fit: cover; }
+    .carousel-card .rating { color: #ffb703; font-size: 1.1rem; margin: 0.5rem 0; }
+    .carousel-card .visit-btn { background: #e63946; color: #fff; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; }
+    .carousel-card .visit-btn:hover { background: #ffb703; color: #222; box-shadow: 0 2px 8px rgba(255,183,3,0.15); transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
+    .map-section { background: #f8f9fa; border-radius: 18px; padding: 2rem; margin-bottom: 2rem; }
+    #map {
+      width: 100%;
+      height: 500px;
+      min-height: 350px;
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    .filters { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .featured-vendors { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .featured-card { background: linear-gradient(135deg, #ffb703 60%, #e63946 100%); color: #fff; border-radius: 18px; padding: 2rem 1.5rem; min-width: 260px; flex: 1; box-shadow: 0 2px 12px rgba(0,0,0,0.10); display: flex; flex-direction: column; align-items: flex-start; }
+    .featured-card h3 { margin: 0 0 0.5rem 0; }
+    .view-all-btn { background: #222; color: #fff; border: none; padding: 0.7rem 2rem; border-radius: 25px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 1.5rem; }
+    .view-all-btn:hover { background: #e63946; }
+    .steps-guide { display: flex; gap: 2rem; justify-content: space-between; margin: 2rem 0; }
+    .step { flex: 1; background: #fff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 1.5rem; text-align: center; }
+    .step i { font-size: 2.5rem; color: #e63946; margin-bottom: 0.7rem; }
+    .blog-window { background: #fff; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2rem; margin-bottom: 2rem; }
+    .bloggers { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .blogger-card { flex: 1; min-width: 220px; background: #f8f9fa; border-radius: 14px; padding: 1rem; }
+    .newsletter-section { background: linear-gradient(90deg, #e63946 60%, #ffb703 100%); color: #fff; border-radius: 18px; padding: 2rem; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
+    .newsletter-section h3 { margin-bottom: 0.5rem; }
+    .newsletter-form { display: flex; gap: 1rem; margin-top: 1rem; }
+    .newsletter-form input { padding: 0.7rem; border-radius: 6px; border: none; font-size: 1rem; }
+    .newsletter-form button { background: #222; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 25px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+    .newsletter-form button:hover { background: #e63946; }
+    .promo { margin-top: 1rem; font-weight: 600; }
+    .testimonials { display: flex; gap: 2rem; margin-top: 2rem; }
+    .testimonial { background: #fff; color: #222; border-radius: 14px; padding: 1rem; flex: 1; min-width: 220px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .footer { background: #222; color: #fff; padding: 2rem 1rem; border-radius: 18px 18px 0 0; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
+    .footer-section { flex: 1; min-width: 180px; }
+    .footer-section h4 { color: #ffb703; margin-bottom: 0.7rem; }
+    .footer-section ul { list-style: none; padding: 0; }
+    .footer-section ul li { margin-bottom: 0.5rem; }
+    .footer-section ul li a { color: #fff; text-decoration: none; transition: color 0.2s; }
+    .footer-section ul li a:hover { color: #ffb703; }
+    .social-icons { display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .social-icons a { color: #fff; font-size: 1.3rem; }
+    @media (max-width: 900px) {
+      .steps-guide, .featured-vendors, .bloggers, .testimonials { flex-direction: column; gap: 1rem; }
+      .carousel-card, .featured-card, .blogger-card, .testimonial { min-width: 90vw; }
+    }
+    .carousel-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(230,57,70,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .carousel-card img:hover {
+      filter: brightness(0.92) saturate(1.2);
+      transition: filter 0.2s;
+    }
+    .carousel-card .visit-btn:hover {
+      
+      color: #222;
+      box-shadow: 0 2px 8px rgba(255,183,3,0.15);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .featured-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 6px 18px rgba(255,183,3,0.13);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blogger-card:hover {
+      background: #ffe5e5;
+      box-shadow: 0 4px 16px rgba(230,57,70,0.10);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .testimonial:hover {
+      background: #fffbe5;
+      box-shadow: 0 4px 16px rgba(255,183,3,0.10);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .vendor-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 6px 18px rgba(230,57,70,0.13);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-explore, .cta-trial {
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+      position: relative;
+    }
+    .cta-explore:hover, .cta-trial:hover {
+    
+      color: #fff;
+      box-shadow: 0 0 16px 2px #e63946cc, 0 2px 12px #ffb70355;
+      transform: scale(1.07);
+      z-index: 2;
+    }
+    .cta-explore:active, .cta-trial:active {
+      
+      color: #fffbe5;
+      box-shadow: 0 0 8px 1px #e63946aa;
+      transform: scale(0.97);
+    }
+    .profile-icon {
+      transition: color 0.2s, transform 0.18s;
+    }
+    .profile-icon:hover i {
+      
+      transform: scale(1.13);
+      text-shadow: 0 0 8px #e63946aa;
+    }
+    .profile-icon:active i {
+      color: #e63946 !important;
+      transform: scale(0.95);
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrwUutHWLdeF0cizgztXN5AFPbX4e4G5A"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="logo.PNG" alt="Taste of Street Logo" class="logo-img">Taste of Street</div>
+      <div class="nav-links" >
+        <a href="index.html">Home</a>
+        <a href="Vendor.html">Vendors</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQs.html">FAQs</a>
+      </div>
+      <div class="search-bar">
+        
+        <button class="cta-explore" onclick="window.location.href='login.html'">Explore Now</button>
+        <a href="profilepage.html" class="profile-icon" aria-label="Profile" style="margin-left:1rem;display:flex;align-items:center;justify-content:center;" onclick="window.location.href='profilepage.html'; return false;"><i class="fas fa-user-circle" style="font-size:2rem;color:#e63946;"></i></a>
+      </div>
+    </nav>
+  </header>
+  <section class="parallax-hero">
+    <h1>Discover the Best Street Food Near You</h1>
+    <p>Find, explore, and savor the most delicious street food stalls in nearby location. Join the Taste of Street community!</p>
+    <button class="cta-trial" onclick="window.location.href='login.html'">Start My Free Trial</button>
+    <div class="news-ticker">Latest: Monsoon Chaat Festival in Mumbai | New Vendor: Delhi Pani Puri King | Trending: Summer Chillers</div>
+  </section>
+  <main class="main-content">
+    <section class="section map-section">
+      <div class="section-title">Find Street Food Near You</div>
+      <div class="filters">
+        <select><option>Food Type</option><option>Chaat</option><option>Snacks</option><option>Desserts</option></select>
+        <select><option>Rating</option><option>4+ Stars</option><option>3+ Stars</option></select>
+        <select id="citySelect">
+          <option>Cities</option>
+          <option value="Bardoli">Bardoli</option>
+          <option value="Surat">Surat</option>
+          <option value="Kadodara">Kadodara</option>
+          <option value="Navsari">Navsari</option>
+          <option value="Mahuva">Mahuva</option>
+        </select>
+      </div>
+      <div id="map"></div>
+    </section>
+    <section class="section">
+      <div class="section-title">Top Rated Stalls</div>
+      <div class="carousel">
+        <div class="carousel-card">
+          <img src="TR-1.jpg" alt="Brdoli Patra vendor" />
+          <div class="rating">★★★★★ 4.9</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+        <div class="carousel-card">
+          <img src="TR-2.jpeg" alt="Pav Bhaji vendor" />
+          <div class="rating">★★★★★ 4.8</div>
+          <button class="visit-btn" onclick="window.open('https://maps.app.goo.gl/UdEKVh5Wr4YSd1yq5','_blank')">Visit Stall</button>
+        </div>
+        <div class="carousel-card">
+          <img src="TR-3.jpeg" alt="Khaman Vendor" />
+          <div class="rating">★★★★★ 4.7</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-title">Trending Foods</div>
+      <div class="carousel">
+        <div class="carousel-card">
+          <img src="TF-1.avif" alt="Aloo Puri" />
+          <div class="rating">★★★★★ 4.8</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+        <div class="carousel-card">
+          <img src="TF-2.jpeg" alt="Khawasa" />
+          <div class="rating">★★★★★ 4.7</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+        <div class="carousel-card">
+          <img src="TF-3.jpeg" alt="Patara" />
+          <div class="rating">★★★★★ 4.6</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-title">Newly Added Vendors</div>
+      <div class="carousel">
+        <div class="carousel-card">
+          <img src="NW-1.jpeg" alt="New Vendor" />
+          <div class="rating">★★★★★ 4.5</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+        <div class="carousel-card">
+          <img src="NW-2.jpeg" alt="New Vendor" />
+          <div class="rating">★★★★★ 4.4</div>
+          <button class="visit-btn">Visit Stall</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-title">Featured Vendors</div>
+      <div class="featured-vendors">
+        <div class="featured-card">
+          <h3>Chaat Express</h3>
+          <p>Famous for spicy pani puri and tangy bhel puri. Mumbai’s favorite!</p>
+        </div>
+        <div class="featured-card">
+          <h3>Delhi Delight</h3>
+          <p>Authentic North Indian street food with a modern twist.</p>
+        </div>
+        <div class="featured-card">
+          <h3>Bangalore Bites</h3>
+          <p>Best dosas and idlis in the city, served fresh and hot.</p>
+        </div>
+      </div>
+      <button class="view-all-btn" onclick="window.location.href='Vendor.html'">View All Vendors</button>
+    </section>
+    <section class="section">
+      <div class="section-title">How It Works</div>
+      <div class="steps-guide">
+        <div class="step"><i class="fas fa-map-marker-alt"></i><h4>Locate</h4><p>Find stalls near you with our live map and filters.</p></div>
+        <div class="step"><i class="fas fa-utensils"></i><h4>Explore</h4><p>Browse menus, ratings, and trending foods.</p></div>
+        <div class="step"><i class="fas fa-bell"></i><h4>Subscribe</h4><p>Get updates, offers, and early access to events.</p></div>
+        <div class="step"><i class="fas fa-smile"></i><h4>Enjoy</h4><p>Visit, taste, and share your reviews with the community!</p></div>
+      </div>
+    </section>
+    <section class="section blog-window" id="blog">
+      <div class="section-title">Feasty Reviews from Top Bloggers</div>
+      <div class="bloggers">
+        <div class="blogger-card"><strong>Raj</strong><p>“The vada pav at Chaat Express is a must-try! Authentic flavors and great vibes.”</p></div>
+        <div class="blogger-card"><strong>Priyanka</strong><p>“Loved the variety at Delhi Delight. The chole bhature is out of this world!”</p></div>
+        <div class="blogger-card"><strong>Sakshi</strong><p>“Bangalore Bites serves the best dosas. Highly recommended for breakfast lovers.”</p></div>
+        <div class="blogger-card"><strong>Jerry</strong><p>“The food trail events are so much fun! Discovered so many hidden gems.”</p></div>
+      </div>
+    </section>
+    <section class="section newsletter-section">
+      <h3>Crave the Latest? Get Early Access!</h3>
+      <p>Subscribe for exclusive invites to street food trails, events, and more. 1-month free trial for new members!</p>
+      <form class="newsletter-form">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="text" placeholder="Payment Details" required />
+        <button type="submit">Subscribe Now</button>
+      </form>
+      <div class="promo">Wait! 50% off on first month if you subscribe now.</div>
+      <div style="margin-top:1rem;">Questions? <a href="#" style="color:#fff;text-decoration:underline;">Live Chat</a></div>
+    </section>
+    <section class="section testimonials">
+      <div class="testimonial"><strong>Priya S.</strong><br>“Taste of Street helped me find the best chaat in town. Love the easy navigation!”<br>★★★★★</div>
+      <div class="testimonial"><strong>Arjun M.</strong><br>“The subscription is totally worth it. Early access to food trails is awesome!”<br>★★★★★</div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li>Email: info@tasteofstreet.com</li>
+        <li>Phone: +91 98765 43210</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="#vendors">Vendors</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Social Media</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/tasteofstreet" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/tasteofstreet" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/@tasteofstreet" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h4>FAQs</h4>
+      <ul>
+        <li><a href="FAQs.html">How to subscribe?</a></li>
+        <li><a href="FAQs.html">How to find vendors?</a></li>
+        <li><a href="FAQs.html">How to review?</a></li>
+        <li><a href="#" id="feedbackLink">Feedback</a></li>
+      </ul>
+    </div>
+    <div class="footer-downloads" style="text-align:center;margin-top:2.5rem;">
+      <h4 style="color:#e63946;margin-bottom:0.7rem;">Get the App</h4>
+      <a href="#" style="display:inline-block;margin:0 1rem 0 0;text-decoration:none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download for Android" style="height:48px;vertical-align:middle;">
+      </a>
+      <a href="#" style="display:inline-block;text-decoration:none;">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download for iOS" style="height:48px;vertical-align:middle;">
+      </a>
+    </div>
+  </footer>
+  <!-- Feedback Modal -->
+  <div id="feedbackModalBg" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:18px;max-width:350px;width:90vw;padding:2rem 1.5rem;box-shadow:0 8px 32px #e6394633;position:relative;text-align:center;">
+      <button id="closeFeedbackModal" style="position:absolute;top:10px;right:18px;font-size:1.3rem;color:#e63946;background:none;border:none;cursor:pointer;">&times;</button>
+      <h2 style="color:#e63946;margin-bottom:1rem;">We Value Your Feedback</h2>
+      <textarea id="feedbackText" rows="4" placeholder="Share your thoughts..." style="width:100%;padding:0.7rem;border-radius:8px;border:1.5px solid #ffb703;font-size:1rem;margin-bottom:1rem;"></textarea>
+      <br>
+      <button id="submitFeedback" style="background:linear-gradient(90deg,#e63946 60%,#ffb703 100%);color:#fff;border:none;border-radius:25px;padding:0.7rem 2rem;font-size:1rem;font-weight:700;cursor:pointer;">Submit</button>
+    </div>
+  </div>
+  <!-- Partner Modal -->
+  <div id="partnerModalBg" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:18px;max-width:350px;width:90vw;padding:2rem 1.5rem;box-shadow:0 8px 32px #e6394633;position:relative;text-align:center;">
+      <button id="closePartnerModal" style="position:absolute;top:10px;right:18px;font-size:1.3rem;color:#e63946;background:none;border:none;cursor:pointer;">&times;</button>
+      <h2 style="color:#e63946;margin-bottom:1rem;">Partner With Us</h2>
+      <p style="font-size:1.1rem;">Want to join as a vendor or collaborate? Email us at <a href='mailto:info@tasteofstreet.com' style='color:#e63946;text-decoration:underline;'>info@tasteofstreet.com</a> or call +91 98765 43210.</p>
+    </div>
+  </div>
+  <script>
+    // City coordinates
+    const cityCoords = {
+      Bardoli: { lat: 21.1240, lng: 73.1115 },
+      Surat: { lat: 21.1702, lng: 72.8311 },
+      Kadodara: { lat: 21.1376, lng: 72.9552 },
+      Navsari: { lat: 20.9467, lng: 72.9520 },
+      Mahuva: { lat: 21.0962, lng: 71.7702 }
+    };
+    // Add city select event
+    document.getElementById('citySelect').addEventListener('change', function() {
+      const city = this.value;
+      if (cityCoords[city]) {
+        if (window.map) {
+          window.map.setCenter(cityCoords[city]);
+          window.map.setZoom(13);
+        }
+      }
+    });
+    // Google Maps Integration (replace YOUR_GOOGLE_MAPS_API_KEY with your real key)
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 19.0760, lng: 72.8777 }, // Mumbai
+        zoom: 12
+      });
+      window.map = map; // Make map globally accessible
+      var markers = [
+        { position: { lat: 21.1255, lng: 73.1122 }, title: 'Patra House' },
+        { position: { lat: 21.1717, lng: 72.9627 }, title: 'Buttery Pavbhaji' },
+        { position: { lat: 21.1702, lng: 72.8311 }, title: 'Mumbai Bites' },
+        { position: { lat: 20.9467, lng: 72.9520 }, title: 'Delicious Khawasa' },
+        { position: { lat: 21.02000000, lng: 73.15000000 }, title: 'Tasty Dosa' }
+      ];
+      markers.forEach(function(markerInfo) {
+        new google.maps.Marker({
+          position: markerInfo.position,
+          map: map,
+          title: markerInfo.title
+        });
+      });
+    }
+    window.onload = function() {
+      if (typeof google !== 'undefined') {
+        initMap();
+      }
+    };
+    // Exit intent popup
+    let popupShown = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (!popupShown && e.clientY < 10) {
+        popupShown = true;
+        alert('Wait! 50% off on first month if you subscribe now.');
+      }
+    });
+    // Feedback modal logic
+    const feedbackLink = document.getElementById('feedbackLink');
+    const feedbackModalBg = document.getElementById('feedbackModalBg');
+    const closeFeedbackModal = document.getElementById('closeFeedbackModal');
+    const submitFeedback = document.getElementById('submitFeedback');
+    feedbackLink.onclick = function(e) {
+      e.preventDefault();
+      feedbackModalBg.style.display = 'flex';
+    };
+    closeFeedbackModal.onclick = function() {
+      feedbackModalBg.style.display = 'none';
+    };
+    feedbackModalBg.onclick = function(e) {
+      if (e.target === feedbackModalBg) feedbackModalBg.style.display = 'none';
+    };
+    submitFeedback.onclick = function() {
+      const text = document.getElementById('feedbackText').value.trim();
+      if (!text) { alert('Please enter your feedback!'); return; }
+      alert('Thank you for your feedback!');
+      document.getElementById('feedbackText').value = '';
+      feedbackModalBg.style.display = 'none';
+    };
+    // Partner modal logic
+    const partnerLink = document.getElementById('partnerLink');
+    const partnerModalBg = document.getElementById('partnerModalBg');
+    const closePartnerModal = document.getElementById('closePartnerModal');
+    partnerLink.onclick = function(e) {
+      e.preventDefault();
+      partnerModalBg.style.display = 'flex';
+    };
+    closePartnerModal.onclick = function() {
+      partnerModalBg.style.display = 'none';
+    };
+    partnerModalBg.onclick = function(e) {
+      if (e.target === partnerModalBg) partnerModalBg.style.display = 'none';
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Taste Of Street</title>
+    <style>
+        body {
+          font-family: 'Montserrat', sans-serif;
+          background: url('login bg.jpg') center center/cover no-repeat fixed, #fff;
+          color: #222;
+          margin: 0;
+          padding: 0;
+        }
+        /* ...existing code... */
+        .social-login {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+          margin-bottom: 1rem;
+          justify-content: center;
+        }
+        .social-login span {
+          font-size: 1rem;
+          color: #555;
+          margin-right: 0.5rem;
+        }
+        .social-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: #f8f9fa;
+          color: #e63946;
+          font-size: 1.3rem;
+          border: 1px solid #eee;
+          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+          text-decoration: none;
+        }
+        .social-btn:hover {
+          background: #e63946;
+          color: #fff;
+          box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+        }
+        .toggle-password {
+          position: relative;
+          left: -38px;
+          top: 2px;
+          cursor: pointer;
+          color: #aaa;
+          font-size: 1.1rem;
+          z-index: 2;
+        }
+        .toggle-password:hover {
+          color: #e63946;
+        }
+        .password-wrapper {
+          position: relative;
+          width: 100%;
+        }
+        .password-wrapper input[type="password"],
+        .password-wrapper input[type="text"] {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .password-wrapper .toggle-password {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          left: unset;
+          z-index: 2;
+          cursor: pointer;
+          color: #aaa;
+          font-size: 1.1rem;
+        }
+        .password-wrapper .toggle-password:hover {
+          color: #e63946;
+        }
+        /* ...existing code... */
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <div class="form-scrollable" id="signupScrollWrapper">
+                <form id="signupForm">
+                    <h1>Create Account</h1>
+                    <div class="social-login">
+                        <span>Sign up with</span>
+                        <a href="https://accounts.google.com/" class="social-btn" title="Sign up with Google" target="_blank" rel="noopener"><i class="fab fa-google"></i></a>
+                        <a href="https://www.facebook.com/login.php" class="social-btn" title="Sign up with Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/i/flow/login" class="social-btn" title="Sign up with Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <select id="signupRole">
+                        <option value="customer">Customer</option>
+                        <option value="vendor">Vendor</option>
+                    </select>
+                    <input type="text" id="signupName" placeholder="Full Name" required>
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input type="text" id="signupPhone" placeholder="Phone Number" required maxlength="10" pattern="\d{10}">
+                    <div id="phoneError" style="color: red; font-size: 0.9em; margin-bottom: 8px;"></div>
+                    <div class="password-wrapper">
+                      <input type="password" id="signupPin" placeholder="6-digit PIN" required maxlength="6" pattern="\d{6}">
+                      <span class="toggle-password" onclick="togglePassword('signupPin', this)" tabindex="-1" aria-label="Show/Hide PIN"><i class="fa fa-eye"></i></span>
+                    </div>
+                    <div id="signupPinError" style="color: red; font-size: 0.9em; margin-bottom: 8px;"></div>
+                    <div class="password-wrapper">
+                      <input type="password" id="signupConfirmPin" placeholder="Confirm 6-digit PIN" required maxlength="6" pattern="\d{6}">
+                      <span class="toggle-password" onclick="togglePassword('signupConfirmPin', this)" tabindex="-1" aria-label="Show/Hide Confirm PIN"><i class="fa fa-eye"></i></span>
+                    </div>
+                    <div id="signupConfirmPinError" style="color: red; font-size: 0.9em; margin-bottom: 8px;"></div>
+                    <div id="vendorFields" style="display: none;">
+                        <input type="text" id="businessName" placeholder="Business Name">
+                        <input type="text" id="stallType" placeholder="Food Category">
+                        <select id="stallLocation">
+                            <option value="">Select Stall Location</option>
+                            <option value="Bardoli">Bardoli</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Kadodara">Kadodara</option>
+                            <option value="Navsari">Navsari</option>
+                            <option value="Mahuva">Mahuva</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select id="paymentMethod" required style="margin-top:10px;">
+                            <option value="">Select Digital Payment Option</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Paytm">Paytm</option>
+                            <option value="Google Pay">Google Pay</option>
+                            <option value="PhonePe">PhonePe</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                        </select>
+                        <input type="text" id="paymentDetails" placeholder="Enter Payment UPI/Number/Account" style="margin-top:8px;">
+                    </div>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <div class="form-container sign-in">
+            <form id="loginForm">
+                <h1>Sign In</h1>
+                <div class="social-login">
+                    <span>Sign in with</span>
+                    <a href="https://accounts.google.com/" class="social-btn" title="Sign in with Google" target="_blank" rel="noopener"><i class="fab fa-google"></i></a>
+                    <a href="https://www.facebook.com/login.php" class="social-btn" title="Sign in with Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/i/flow/login" class="social-btn" title="Sign in with Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                </div>
+                <select id="loginRole">
+                    <option value="customer">Customer</option>
+                    <option value="vendor">Vendor</option>
+                </select>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <div class="password-wrapper">
+                  <input type="password" id="loginPin" placeholder="6-digit PIN" required maxlength="6" pattern="\d{6}">
+                  <span class="toggle-password" onclick="togglePassword('loginPin', this)" tabindex="-1" aria-label="Show/Hide PIN"><i class="fa fa-eye"></i></span>
+                </div>
+                <div id="loginPinError" style="color: red; font-size: 0.9em; margin-bottom: 8px;"></div>
+                <a href="forgot.html">Forgot Your Pin?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function togglePassword(inputId, el) {
+          const input = document.getElementById(inputId);
+          const icon = el.querySelector('i');
+          if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+          } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+          }
+        }
+
+        // Redirect to homepage after successful login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Simulate login success (replace with real validation as needed)
+          alert('Login successful!');
+          window.location.href = 'index.html';
+        });
+
+        // Redirect to homepage after successful sign up
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Simulate sign up success (replace with real validation as needed)
+          alert('Sign up successful!');
+          window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

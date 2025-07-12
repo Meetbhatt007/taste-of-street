@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Us | Taste of Street</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #222; margin: 0; padding: 0; }
+    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.97); z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
+    .logo { font-size: 2rem; font-weight: 700; color: #e63946; letter-spacing: 2px; display: flex; align-items: center; }
+    .logo-img { height: 60px; width: 60px; vertical-align: middle; margin-right: 10px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 1.2rem; }
+    .nav-links a { text-decoration: none; color: #222; font-weight: 500; transition: color 0.2s; border-radius: 16px; padding: 0.3rem 1rem; }
+    .nav-links a:hover { color: #e63946; background: #ffe5e5; }
+    .header-actions { display: flex; gap: 1rem; }
+    .header-btn {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.3rem;
+      border-radius: 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+      position: relative;
+    }
+    .header-btn:hover {
+      background: linear-gradient(90deg, #e63946 60%, #ffb703 100%);
+      color: #fff;
+      box-shadow: 0 0 16px 2px #e63946cc, 0 2px 12px #ffb70355;
+      transform: scale(1.07);
+      z-index: 2;
+    }
+    .header-btn:active {
+      background: #d90429;
+      color: #fffbe5;
+      box-shadow: 0 0 8px 1px #e63946aa;
+      transform: scale(0.97);
+    }
+    .partner-container { max-width: 900px; margin: 110px auto 0 auto; padding: 2.5rem 1.5rem; background: #f8f9fa; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    h1 { color: #e63946; font-size: 2.2rem; margin-bottom: 1.2rem; text-align: center; }
+    .partner-options { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 2rem; }
+    .partner-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(230,57,70,0.10);
+      padding: 2rem 1.5rem;
+      max-width: 300px;
+      flex: 1 1 250px;
+      text-align: center;
+      border: 1.5px solid #ffe5e5;
+      transition: box-shadow 0.25s, transform 0.18s;
+    }
+    .partner-card:hover {
+      box-shadow: 0 8px 32px rgba(230,57,70,0.13);
+      transform: translateY(-6px) scale(1.03);
+      border-color: #ffb703;
+    }
+    .partner-icon { font-size: 2.5rem; color: #e63946; margin-bottom: 1rem; }
+    .partner-title { font-size: 1.3rem; font-weight: 700; color: #222; margin-bottom: 0.7rem; }
+    .partner-desc { color: #333; font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.2rem; }
+    .partner-btn {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+    }
+    .partner-btn:hover {
+      background: linear-gradient(90deg, #e63946 60%, #ffb703 100%);
+      color: #fff;
+      box-shadow: 0 0 16px 2px #e63946cc, 0 2px 12px #ffb70355;
+      transform: scale(1.07);
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #e63946;
+      color: #fff;
+      padding: 0.7rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .back-btn:hover {
+      background: #d62839;
+    }
+    @media (max-width: 900px) {
+      .partner-options { flex-direction: column; align-items: center; }
+      .partner-card { max-width: 100%; width: 100%; }
+    }
+    @media (max-width: 700px) {
+      .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+      .logo-img { height: 40px; width: 40px; }
+      .partner-container { margin-top: 130px; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="logo.PNG" alt="Taste of Street Logo" class="logo-img">Taste of Street</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="Vendor.html">Vendors</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQs.html">FAQs</a>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" onclick="window.location.href='login.html'">Login</button>
+      </div>
+    </nav>
+  </header>
+  <div class="partner-container">
+    <h1>Partner With Us</h1>
+    <div class="partner-options">
+      <div class="partner-card">
+        <div class="partner-icon"><i class="fas fa-store"></i></div>
+        <div class="partner-title">Become a Vendor</div>
+        <div class="partner-desc">Join our platform to showcase your street food stall, reach more customers, and grow your business with Taste of Street.</div>
+        <button class="partner-btn" onclick="alert('Vendor registration coming soon!')">Register as Vendor</button>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon"><i class="fas fa-motorcycle"></i></div>
+        <div class="partner-title">Delivery Partner</div>
+        <div class="partner-desc">Partner with us as a delivery associate and help bring delicious street food to customers' doorsteps while earning on your schedule.</div>
+        <button class="partner-btn" onclick="alert('Delivery partner registration coming soon!')">Join as Delivery Partner</button>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon"><i class="fas fa-hands-helping"></i></div>
+        <div class="partner-title">Serving Partner</div>
+        <div class="partner-desc">Be a part of our serving team at events and pop-ups, helping us deliver great food experiences to foodies everywhere.</div>
+        <button class="partner-btn" onclick="alert('Serving partner registration coming soon!')">Join as Serving Partner</button>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <button class="header-btn" onclick="window.location.href='index.html'" style="font-size:1.05rem; padding:0.6rem 2.2rem; margin-top:1.2rem;">
+        <i class="fas fa-arrow-left" style="margin-right:8px;"></i>Back to Home
+      </button>
+    </div>
+  </div>
+  <footer style="background:#222;color:#fff;padding:2rem 0;text-align:center;margin-top:2rem;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="font-size:1.2rem;font-weight:600;">&copy; 2025 Taste of Street. All rights reserved.</div>
+      <div style="font-size:1rem;">
+        <a href="about.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">About</a> |
+        <a href="contact.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">Contact</a> |
+        <a href="FAQs.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">FAQs</a>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://facebook.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="https://instagram.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-twitter fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendors | Taste of Street</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(rgba(246,211,101,0.7), rgba(253,160,133,0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat fixed;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .vendor-container {
+      max-width: 1100px;
+      margin: 60px auto 0 auto;
+      padding: 2.5rem 2rem 2rem 2rem;
+      background: rgba(255,255,255,0.97);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(230,57,70,0.13), 0 1.5px 8px rgba(255,183,3,0.08);
+    }
+    h1 {
+      color: #e63946;
+      font-size: 2.6rem;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 8px #ffb70333;
+    }
+    .vendors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .vendor-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(255,183,3,0.10), 0 1.5px 8px rgba(230,57,70,0.07);
+      width: 300px;
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .vendor-card:hover {
+      box-shadow: 0 8px 32px #e6394633, 0 2px 16px #ffb70322;
+      transform: translateY(-6px) scale(1.03);
+    }
+    .vendor-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px #e6394633;
+      margin-bottom: 1rem;
+      border: 3px solid #ffb703;
+      background: #eee;
+    }
+    .vendor-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e63946;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+    .vendor-specialty {
+      color: #ffb703;
+      font-size: 1.08rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .vendor-location {
+      color: #888;
+      font-size: 0.98rem;
+      margin-bottom: 0.7rem;
+    }
+    .vendor-desc {
+      font-size: 1.08rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 0.7rem;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 2.5rem auto 0 auto;
+      background: linear-gradient(90deg,#e63946 60%,#ffb703 100%);
+      color: #fff;
+      padding: 0.7rem 2.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px #e6394633;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      border: none;
+      text-align: center;
+      max-width: 220px;
+    }
+    .back-btn i {
+      margin-right: 0.5rem;
+    }
+    @media (max-width: 800px) {
+      .vendor-container { padding: 2rem 1rem; }
+      .vendors-grid { flex-direction: column; align-items: center; }
+      .vendor-card { width: 90vw; }
+    }
+    body { padding-top: 80px !important; }
+    /* Header and navbar styles from contact.html */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.97);
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e63946;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+    }
+    .logo-img {
+      height: 60px;
+      width: 60px;
+      vertical-align: middle;
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      transition: color 0.2s;
+      border-radius: 16px;
+      padding: 0.3rem 1rem;
+    }
+    .nav-links a:hover {
+      color: #e63946;
+      background: #ffe5e5;
+    }
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .header-btn {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.3rem;
+      border-radius: 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+      position: relative;
+    }
+    .header-btn:hover {
+      background: linear-gradient(90deg, #e63946 60%, #ffb703 100%);
+      color: #fff;
+      box-shadow: 0 0 16px 2px #e63946cc, 0 2px 12px #ffb70355;
+      transform: scale(1.07);
+      z-index: 2;
+    }
+    .header-btn:active {
+      background: #d90429;
+      color: #fffbe5;
+      box-shadow: 0 0 8px 1px #e63946aa;
+      transform: scale(0.97);
+    }
+    @media (max-width: 700px) {
+      .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+      .logo-img { height: 40px; width: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="logo.PNG" alt="Taste of Street Logo" class="logo-img"><span style="color:#e63946;">TASTE OF STREET</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="Vendor.html">Vendors</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQs.html">FAQs</a>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" onclick="window.location.href='login.html'">Login</button>
+      </div>
+    </nav>
+  </header>
+  <div class="vendor-container">
+    <h1>Our Top Vendors</h1>
+    <div class="vendors-grid" id="vendorsGrid">
+      <!-- Vendor cards will be dynamically inserted here -->
+    </div>
+    <a href="index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+  <footer style="background:#222;color:#fff;padding:2rem 0;text-align:center;margin-top:2rem;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="font-size:1.2rem;font-weight:600;">&copy; 2025 Taste of Street. All rights reserved.</div>
+      <div style="font-size:1rem;">
+        <a href="about.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">About</a> |
+        <a href="contact.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">Contact</a> |
+        <a href="FAQs.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">FAQs</a>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://facebook.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="https://instagram.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-twitter fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Vendor data array
+    const vendors = [
+      {
+        img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+        name: "Suraj Jadhav",
+        specialty: "Pavbhaji",
+        location: "Kadodara",
+        desc: "Famous for buttery pav bhaji and friendly service. Suraj's stall is a must-visit for comfort food lovers."
+      },
+      {
+        img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+        name: "Mihir Dumraliya",
+        specialty: "Dosa Corner",
+        location: "Mahuva",
+        desc: "Crispy dosas and coconut chutney from a women-powered food truck. From humble beginnings to a city favorite!"
+      },
+      {
+        img: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
+        name: "Himay Patel",
+        specialty: "Vadapav",
+        location: "Surat",
+        desc: "Bringing Mumbai's famous Vadapav to Surat. A hotspot for students and foodies alike!"
+      },
+      {
+        img: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80",
+        name: "Meet Bhatt",
+        specialty: " Khawasa",
+        location: "Navsari",
+        desc: "Bringing Surat's famous Khawasa to Navsari. A hotspot for peoples and foodies alike!."
+      }
+    ];
+    // Render vendor cards
+    const grid = document.getElementById('vendorsGrid');
+    grid.innerHTML = vendors.map(vendor => `
+      <div class="vendor-card">
+        <img src="${vendor.img}" alt="${vendor.name}" class="vendor-img">
+        <div class="vendor-name">${vendor.name}</div>
+        <div class="vendor-specialty">${vendor.specialty}</div>
+        <div class="vendor-location"><i class='fas fa-map-marker-alt'></i> ${vendor.location}</div>
+        <div class="vendor-desc">${vendor.desc}</div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

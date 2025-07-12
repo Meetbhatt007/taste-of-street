@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Taste of Street</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('about bg.jpg') center center/cover no-repeat fixed, #fff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.97); z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
+    .logo { font-size: 2rem; font-weight: 700; color: #e63946; letter-spacing: 2px; display: flex; align-items: center; }
+    .logo-img { height: 60px; width: 60px; vertical-align: middle; margin-right: 10px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 1.2rem; }
+    .nav-links a { text-decoration: none; color: #222; font-weight: 500; transition: color 0.2s; border-radius: 16px; padding: 0.3rem 1rem; }
+    .nav-links a:hover { color: #e63946; background: #ffe5e5; }
+    .header-actions { display: flex; gap: 1rem; }
+    .header-btn {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.3rem;
+      border-radius: 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+      position: relative;
+    }
+    .header-btn:hover {
+      /* Remove hover effect for Login button */
+    }
+    .header-btn:active {
+      background: #d90429;
+      color: #fffbe5;
+      box-shadow: 0 0 8px 1px #e63946aa;
+      transform: scale(0.97);
+    }
+    .about-container {
+      max-width: 800px;
+      margin: 100px auto 0 auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.70);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 { color: #e63946; font-size: 2.5rem; margin-bottom: 1rem; }
+    p { font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .back-btn { display: inline-block; margin-top: 2rem; background: #e63946; color: #fff; padding: 0.7rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 700; transition: background 0.2s; }
+    .back-btn:hover { background: #ffb703; color: #222; }
+    @media (max-width: 700px) {
+      .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+      .about-container { margin-top: 120px; padding: 1rem; }
+      .logo-img { height: 40px; width: 40px; }
+    }
+    /* Remove hover effect for Login button only */
+    #login-btn.header-btn:hover {
+      background: #e63946;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+      transform: none;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="logo.PNG" alt="Taste of Street Logo" class="logo-img">Taste of Street</div>
+      <div class="nav-links">
+       <a href="index.html">Home</a>
+        <a href="Vendor.html">Vendors</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQs.html">FAQs</a>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" onclick="window.location.href='login.html'" id="login-btn">Login</button>
+      </div>
+    </nav>
+  </header>
+  <div class="about-container">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+        <img src="logo.PNG" alt="Taste of Street Logo" class="logo-img">
+        <h1 style="margin:0;">About Taste of Street</h1>
+      </div>
+      <p><strong>Taste of Street</strong> is your ultimate companion for discovering the vibrant world of street food. Our mission is to connect food lovers with the best local street food stalls, trending delicacies, and hidden gems in your city. Whether you crave spicy chaat, sizzling snacks, or sweet treats, Taste of Street helps you find, explore, and enjoy authentic flavors right around the corner.</p>
+      <p>We believe that every city has a unique food story to tell. Our platform brings together top-rated vendors, trending foods, and real reviews from passionate foodies. With interactive maps, smart filters, and a welcoming community, we make your street food journey easy, fun, and delicious.</p>
+      <p>Join us as we celebrate the spirit of local food culture, support small vendors, and create unforgettable food experiences for everyone!</p>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  <footer style="background:#222;color:#fff;padding:2rem 0;text-align:center;margin-top:2rem;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="font-size:1.2rem;font-weight:600;">&copy; 2025 Taste of Street. All rights reserved.</div>
+      <div style="font-size:1rem;">
+        <a href="about.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">About</a> |
+        <a href="contact.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">Contact</a> |
+        <a href="FAQs.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">FAQs</a>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://facebook.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="https://instagram.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-twitter fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

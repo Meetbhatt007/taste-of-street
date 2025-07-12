@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Taste of Street</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: linear-gradient(rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('front.jpg') no-repeat center center fixed; background-size: cover; color: #222; margin: 0; padding: 0; }
+    /* Overlay for better readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.82);
+      z-index: 0;
+      pointer-events: none;
+    }
+    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.97); z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
+    .logo { font-size: 2rem; font-weight: 700; color: #e63946; letter-spacing: 2px; display: flex; align-items: center; }
+    .logo-img { height: 60px; width: 60px; vertical-align: middle; margin-right: 10px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 1.2rem; }
+    .nav-links a { text-decoration: none; color: #222; font-weight: 500; transition: color 0.2s; border-radius: 16px; padding: 0.3rem 1rem; }
+    .nav-links a:hover { color: #e63946; background: #ffe5e5; }
+    .header-actions { display: flex; gap: 1rem; }
+    .header-btn {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.3rem;
+      border-radius: 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.18s;
+      box-shadow: 0 2px 8px rgba(230,57,70,0.10);
+      position: relative;
+    }
+    .header-btn:hover {
+      background: linear-gradient(90deg, #e63946 60%, #ffb703 100%);
+      color: #fff;
+      box-shadow: 0 0 16px 2px #e63946cc, 0 2px 12px #ffb70355;
+      transform: scale(1.07);
+      z-index: 2;
+    }
+    .header-btn:active {
+      background: #d90429;
+      color: #fffbe5;
+      box-shadow: 0 0 8px 1px #e63946aa;
+      transform: scale(0.97);
+    }
+    .contact-container { 
+      position: relative; 
+      z-index: 1; 
+      max-width: 600px; 
+      margin: 100px auto 0 auto; 
+      padding: 2rem; 
+      background: #f8f9fa; 
+      border-radius: 18px; 
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08); 
+    }
+    h1 { color: #e63946; font-size: 2.2rem; margin-bottom: 1.2rem; }
+    .contact-details { font-size: 1.15rem; margin-bottom: 2rem; }
+    .contact-details i { color: #e63946; margin-right: 0.7rem; }
+    .social-icons { display: flex; gap: 1.2rem; margin-top: 1.2rem; }
+    .social-icons a { color: #e63946; font-size: 1.5rem; transition: color 0.2s; }
+    .social-icons a:hover { color: #ffb703; }
+    .back-btn { display: inline-block; margin-top: 2rem; background: #e63946; color: #fff; padding: 0.7rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 700; transition: background 0.2s; }
+    .back-btn:hover { background: #ffb703; color: #222; }
+    @media (max-width: 700px) {
+      .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+      .contact-container { margin-top: 120px; padding: 1rem; }
+      .logo-img { height: 40px; width: 40px; }
+    }
+    footer {
+      background: #222 !important;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+      opacity: 1 !important;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="logo.PNG" alt="Taste of Street Logo" class="logo-img">Taste of Street</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="Vendor.html">Vendors</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQs.html">FAQs</a>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" onclick="window.location.href='login.html'">Login</button>
+        
+      </div>
+    </nav>
+  </header>
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <div class="contact-details">
+      <p><i class="fas fa-envelope"></i>Email: <a href="mailto:info@tasteofstreet.com" style="color:#e63946;">info@tasteofstreet.com</a></p>
+      <p><i class="fas fa-phone"></i>Phone: <a href="tel:+919876543210" style="color:#e63946;">+91 98765 43210</a></p>
+      <p><i class="fas fa-map-marker-alt"></i>Address: 123 Foodie Lane, Mumbai, India</p>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/tasteofstreet" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/tasteofstreet" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/@tasteofstreet" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+  <footer style="background:#222;color:#fff;padding:2rem 0;text-align:center;margin-top:2rem;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="font-size:1.2rem;font-weight:600;">&copy; 2025 Taste of Street. All rights reserved.</div>
+      <div style="font-size:1rem;">
+        <a href="about.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">About</a> |
+        <a href="contact.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">Contact</a> |
+        <a href="FAQs.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">FAQs</a>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://facebook.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="https://instagram.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-twitter fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

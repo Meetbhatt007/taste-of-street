@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership | Taste of Street</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: linear-gradient(120deg, #fffbe5 0%, #ffe5ec 100%); color: #222; margin: 0; padding: 0; }
+    .membership-container { max-width: 1100px; margin: 60px auto 0 auto; padding: 2.5rem 2rem 2rem 2rem; background: rgba(255,255,255,0.97); border-radius: 22px; box-shadow: 0 8px 32px rgba(230,57,70,0.13), 0 1.5px 8px rgba(255,183,3,0.08); }
+    h1 { color: #e63946; font-size: 2.6rem; margin-bottom: 2.2rem; text-align: center; letter-spacing: 1.5px; text-shadow: 0 2px 8px #ffb70333; }
+    .plans { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .plan-card { background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(255,183,3,0.10), 0 1.5px 8px rgba(230,57,70,0.07); width: 320px; padding: 2rem 1.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s, transform 0.2s; position: relative; }
+    .plan-card:hover { box-shadow: 0 8px 32px #e6394633, 0 2px 16px #ffb70322; transform: translateY(-6px) scale(1.03); }
+    .plan-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+    .bronze { color: #cd7f32; }
+    .silver { color: #bfc1c2; }
+    .gold { color: #ffd700; }
+    .plan-price { font-size: 2.1rem; font-weight: 800; margin-bottom: 0.7rem; }
+    .plan-features { list-style: none; padding: 0; margin-bottom: 1.2rem; }
+    .plan-features li { font-size: 1.08rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
+    .plan-features i { margin-right: 0.6rem; }
+    .choose-btn { background: linear-gradient(90deg,#e63946 60%,#ffb703 100%); color: #fff; padding: 0.7rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 2px 8px #e6394633; transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s; border: none; text-align: center; margin-top: 1rem; cursor: pointer; }
+    .choose-btn:hover { background: linear-gradient(90deg,#ffb703 60%,#e63946 100%); color: #fff; transform: scale(1.07); }
+    .back-btn { display: inline-block; background: linear-gradient(90deg,#e63946 60%,#ffb703 100%); color: #fff; padding: 0.7rem 2.2rem; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 2px 8px #e6394633; transition: background 0.2s, color 0.2s, box-shadow 0.2s; max-width: 220px; text-align: center; margin-top: 2rem; }
+    @media (max-width: 900px) { .plans { flex-direction: column; align-items: center; } .plan-card { width: 90vw; } }
+    .main-header { position: static; background: rgba(255,255,255,0.92); box-shadow: 0 2px 16px rgba(0,0,0,0.07); z-index: 1000; }
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 2rem; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #e63946; text-decoration: none; display: flex; align-items: center; letter-spacing: 1px; }
+    .logo img { height: 38px; vertical-align: middle; margin-right: 10px; }
+    .nav-links { display: flex; gap: 1.2rem; }
+    .nav-links a { color: #222; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #e63946; }
+    .header-actions { display: flex; gap: 0.7rem; }
+    .header-btn { font-weight: 700; font-size: 1.02rem; padding: 0.4rem 1.3rem; border-radius: 22px; border: none; outline: none; text-decoration: none; color: #fff; background: linear-gradient(90deg,#457b9d 60%,#43aa8b 100%); box-shadow: 0 2px 12px #e6394633; transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s; cursor: pointer; margin-left: 0.2rem; letter-spacing: 0.5px; position: relative; }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-content">
+      <a href="index.html" class="logo"><img src="logo.PNG" alt="Taste of Street Logo">Taste of Street</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="Vendor.html">Vendors</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQs.html">FAQs</a>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="header-btn login-btn">Login</a>
+      </div>
+    </div>
+  </header>
+  <div class="membership-container">
+    <h1>Choose Your Membership</h1>
+    <div class="plans">
+      <div class="plan-card">
+        <div class="plan-title bronze"><i class="fas fa-medal"></i> Bronze</div>
+        <div class="plan-price">₹99<span style="font-size:1rem;font-weight:400;">/mo</span></div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle" style="color:#cd7f32;"></i>Access to vendor listings</li>
+          <li><i class="fas fa-check-circle" style="color:#cd7f32;"></i>Basic food trail recommendations</li>
+          <li><i class="fas fa-check-circle" style="color:#cd7f32;"></i>Monthly newsletter</li>
+        </ul>
+        <button class="choose-btn">Choose Bronze</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-title silver"><i class="fas fa-medal"></i> Silver</div>
+        <div class="plan-price">₹199<span style="font-size:1rem;font-weight:400;">/mo</span></div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle" style="color:#bfc1c2;"></i>All Bronze features</li>
+          <li><i class="fas fa-check-circle" style="color:#bfc1c2;"></i>Exclusive vendor deals</li>
+          <li><i class="fas fa-check-circle" style="color:#bfc1c2;"></i>Get order option</li>
+          <li><i class="fas fa-check-circle" style="color:#bfc1c2;"></i>Priority support</li>
+        </ul>
+        <button class="choose-btn">Choose Silver</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-title gold"><i class="fas fa-crown"></i> Gold</div>
+        <div class="plan-price">₹299<span style="font-size:1rem;font-weight:400;">/mo</span></div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle" style="color:#ffd700;"></i>All Silver features</li>
+          <li><i class="fas fa-check-circle" style="color:#ffd700;"></i>Get pre order option  </li>
+          <li><i class="fas fa-check-circle" style="color:#ffd700;"></i>Personalized recommendations</li>
+          <li><i class="fas fa-check-circle" style="color:#ffd700;"></i>1-on-1 food expert chat</li>
+        </ul>
+        <button class="choose-btn">Choose Gold</button>
+      </div>
+    </div>
+    <div style="text-align:center;margin:2.5rem 0 0 0;">
+      <a href="index.html" class="back-btn" style="display:inline-block;background:linear-gradient(90deg,#e63946 60%,#ffb703 100%);color:#fff;padding:0.7rem 2.2rem;border-radius:25px;text-decoration:none;font-weight:700;font-size:1.1rem;box-shadow:0 2px 8px #e6394633;transition:background 0.2s,color 0.2s,box-shadow 0.2s;max-width:220px;text-align:center;margin-top:2rem;">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </div>
+  <!-- Login Required Modal -->
+  <div id="loginModalBg" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:18px;max-width:350px;width:90vw;padding:2rem 1.5rem;box-shadow:0 8px 32px #e6394633;position:relative;text-align:center;">
+      <button id="closeLoginModal" style="position:absolute;top:10px;right:18px;font-size:1.3rem;color:#e63946;background:none;border:none;cursor:pointer;">&times;</button>
+      <h2 style="color:#e63946;margin-bottom:1rem;">Please Login</h2>
+      <p style="font-size:1.1rem;">You need to log in to purchase a membership.</p>
+      <a href="login.html" style="display:inline-block;margin-top:1.2rem;background:linear-gradient(90deg,#e63946 60%,#ffb703 100%);color:#fff;padding:0.7rem 2rem;border-radius:25px;text-decoration:none;font-weight:700;font-size:1.1rem;box-shadow:0 2px 8px #e6394633;transition:background 0.2s,transform 0.15s;">Go to Login</a>
+    </div>
+  </div>
+  <footer style="background:#222;color:#fff;padding:2rem 0;text-align:center;margin-top:2rem;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="font-size:1.2rem;font-weight:600;">&copy; 2025 Taste of Street. All rights reserved.</div>
+      <div style="font-size:1rem;">
+        <a href="about.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">About</a> |
+        <a href="contact.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">Contact</a> |
+        <a href="FAQs.html" style="color:#ffb703;text-decoration:none;margin:0 1rem;">FAQs</a>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <a href="https://facebook.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="https://instagram.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://twitter.com/tasteofstreet" target="_blank" rel="noopener" style="color:#fff;margin:0 0.5rem;"><i class="fab fa-twitter fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Show login modal on choose button click
+    document.querySelectorAll('.choose-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('loginModalBg').style.display = 'flex';
+      });
+    });
+    document.getElementById('closeLoginModal').onclick = function() {
+      document.getElementById('loginModalBg').style.display = 'none';
+    };
+    document.getElementById('loginModalBg').onclick = function(e) {
+      if (e.target === this) this.style.display = 'none';
+    };
+  </script>
+</body>
+</html>
